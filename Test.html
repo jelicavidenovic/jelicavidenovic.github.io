@@ -245,19 +245,18 @@ public class Test {
   	}
 
   	public static void main(String[] args) {
-  		String answer;
-  		KlasaSaListom objekatSaListom = new KlasaSaListom(null);
-
+      KlasaSaListom objekatSaListom = new KlasaSaListom(null);
       objekatSaListom.load("path/to/file");
 
+      String odgovor = null;
   		do {
   			System.out.println("Meni:");
 
   			System.out.println("x. Izlaz");
 
-  			answer = sc.nextLine();
+  			odgovor = sc.nextLine();
 
-  			switch (answer) {
+  			switch (odgovor) {
   			case "1":
 
   				break;
@@ -267,7 +266,7 @@ public class Test {
   			case "x":
   				break;
   			}
-  		} while (answer != "x");
+  		} while (odgovor != "x");
 
       sc.close();
 

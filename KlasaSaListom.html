@@ -98,6 +98,22 @@ public class KlasaSaListom {
   		return pronasao;
   	}
 
+   public double racunanjeProseka() {
+      double zbir = 0;
+      int brojac = 0;
+
+      for (int i = 0; i < this.lista.size(); i++) {
+         zbir += this.lista.get(i).getCeliBroj();
+         brojac++;
+      }
+
+      if (brojac > 0) {
+         return (double) zbir / this.lista.size();
+      } else {
+         return 0;
+      }
+   }
+
 
 
   	///////////////////LOAD FUNKCIJA /////////////////////////////////////
@@ -110,18 +126,20 @@ public class KlasaSaListom {
 
   			this.naziv = linije.get(0);
   			for (int i = 1; i < linije.size(); i++) {
-  				String[] delovi = linije.get(i).split(";");
-  				int id = Integer.parseInt(delovi[0]);
-  				String naziv = delovi[1];
-  				int celiBroj = Integer.parseInt(delovi[2]);
-  				double decimalniBroj = Double.parseDouble(delovi[3]);
-  				LocalDate datum = LocalDate.parse(delovi[4], dtf);
+  				String[] attributes = linije.get(i).split(";");
+  				int id = Integer.parseInt(attributes[0]);
+  				String naziv = attributes[1];
+  				int celiBroj = Integer.parseInt(attributes[2]);
+  				double decimalniBroj = Double.parseDouble(attributes[3]);
+  				LocalDate datum = LocalDate.parse(attributes[4], dtf);
   				KlasaClan clan = new KlasaClan(id, naziv, celiBroj, decimalniBroj, datum);
   				this.dodavanje(clan);
   			}
-  		} catch(Exception e) {
+  		} catch(java.io.IOException e) {
   			System.out.println("Greska prilikom citanja iz fajla.");
-  		}
+  		} catch(Exception e) {
+        System.out.println("Ucitani datum nije u odgovarajucem formatu.");
+      }
   	}
 
   	//////////////////////   SAVE FUNKCIJA  ///////////////////////////////////////////
