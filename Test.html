@@ -12,7 +12,7 @@ public class Test {
 
   	//stampa zaglavlje za tabelarni ispis kontakata
   	public static void printFormatedHeader() {
-  		System.out.printf("%15s %15s %10d %10.2f %10s %10s\n", "ID", "Ime", "Celi broj", "Decimalni broj", "Tacno", "Datum");
+  		System.out.printf("%15s %15s %10s %10s %10s %10s\n", "ID", "Ime", "Celi broj", "Decimalni broj", "Tacno", "Datum");
   		System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
   	}
 
@@ -59,9 +59,9 @@ public class Test {
   		KlasaClan clan = new KlasaClan (id, naziv, celiBroj, decimalniBroj, datum);
   		boolean provera = objekatSaListom.dodavanje(clan);
   		if(provera) {
-  			System.out.println("Transakcija je uspe�no dodata.");
+  			System.out.println("Uspesno dodato.");
   		} else {
-  			System.out.println("Transakcija nije uspe�no dodata.");
+  			System.out.println("Nije uspesno dodato.");
   		}
   	}
 
